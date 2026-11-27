@@ -49,16 +49,18 @@
   </a>
 
   <script>
-    (function () {
+    document.addEventListener("DOMContentLoaded", function () {
       const isProxied = window.location.hostname.toLowerCase() === "raw.githack.com";
       const toggle = document.getElementById("site-version-toggle");
 
-      if (isProxied) {
-        toggle.href = "https://saugatcho.github.io/";
-        toggle.textContent = "Go to original page";
-      } else {
-        toggle.href = "https://raw.githack.com/SaugatCho/SaugatCho.github.io/main/index.html";
-        toggle.textContent = "Go to proxied page";
+      if (toggle) {
+        if (isProxied) {
+          toggle.href = "https://saugatcho.github.io/";
+          toggle.textContent = "Go to original page";
+        } else {
+          toggle.href = "https://raw.githack.com/SaugatCho/SaugatCho.github.io/main/index.html";
+          toggle.textContent = "Go to proxied page";
+        }
       }
 
       document.querySelectorAll("[data-original-url][data-proxied-url]").forEach((link) => {
@@ -69,7 +71,7 @@
         link.href = isProxied ? link.dataset.counterpartOriginal : link.dataset.counterpartProxied;
         link.textContent = isProxied ? "Open Page in Original" : "View Page as Proxied";
       });
-    })();
+    });
   </script>
 
   <div class="container">
