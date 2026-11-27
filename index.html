@@ -50,8 +50,8 @@
 
   <script>
     (function () {
-      const toggle = document.getElementById("site-version-toggle");
       const isProxied = window.location.hostname.toLowerCase() === "raw.githack.com";
+      const toggle = document.getElementById("site-version-toggle");
 
       if (isProxied) {
         toggle.href = "https://saugatcho.github.io/";
@@ -60,6 +60,15 @@
         toggle.href = "https://raw.githack.com/SaugatCho/SaugatCho.github.io/main/index.html";
         toggle.textContent = "Go to proxied page";
       }
+
+      document.querySelectorAll("[data-original-url][data-proxied-url]").forEach((link) => {
+        link.href = isProxied ? link.dataset.proxiedUrl : link.dataset.originalUrl;
+      });
+
+      document.querySelectorAll("[data-counterpart-original][data-counterpart-proxied]").forEach((link) => {
+        link.href = isProxied ? link.dataset.counterpartOriginal : link.dataset.counterpartProxied;
+        link.textContent = isProxied ? "Open Page in Original" : "View Page as Proxied";
+      });
     })();
   </script>
 
@@ -91,21 +100,39 @@
           <h3>My Projects & Pages</h3>
           <div class="projects-list">
             <div class="project-card">
-              <a class="project-name" href="https://saugatcho.github.io/Eaglercraft-Launcher">Eaglercraft Launcher</a>
+              <a class="project-name"
+                 data-original-url="https://saugatcho.github.io/Eaglercraft-Launcher"
+                 data-proxied-url="https://raw.githack.com/SaugatCho/Eaglercraft-Launcher/main/index.html"
+                 href="https://saugatcho.github.io/Eaglercraft-Launcher">Eaglercraft Launcher</a>
               <p style="margin: 6px 0 8px; color: var(--muted); font-size: 0.85rem; line-height: 1.4;">Browser-based game launcher for Eaglercraft</p>
               <div class="project-links">
-                <a class="project-link" href="https://saugatcho.github.io/Eaglercraft-Launcher">Visit Page</a>
-                <a class="project-link" href="https://raw.githack.com/SaugatCho/Eaglercraft-Launcher/main/index.html">View Page as Proxied</a>
+                <a class="project-link"
+                   data-original-url="https://saugatcho.github.io/Eaglercraft-Launcher"
+                   data-proxied-url="https://raw.githack.com/SaugatCho/Eaglercraft-Launcher/main/index.html"
+                   href="https://saugatcho.github.io/Eaglercraft-Launcher">Visit Page</a>
+                <a class="project-link"
+                   data-counterpart-original="https://saugatcho.github.io/Eaglercraft-Launcher"
+                   data-counterpart-proxied="https://raw.githack.com/SaugatCho/Eaglercraft-Launcher/main/index.html"
+                   href="https://raw.githack.com/SaugatCho/Eaglercraft-Launcher/main/index.html">View Page as Proxied</a>
                 <a class="project-link" href="https://github.com/SaugatCho/Eaglercraft-Launcher">See on GitHub</a>
               </div>
             </div>
 
             <div class="project-card">
-              <a class="project-name" href="https://saugatcho.github.io/LinguaPulse">Lingua Pulse</a>
+              <a class="project-name"
+                 data-original-url="https://saugatcho.github.io/LinguaPulse"
+                 data-proxied-url="https://raw.githack.com/SaugatCho/LinguaPulse/main/index.html"
+                 href="https://saugatcho.github.io/LinguaPulse">Lingua Pulse</a>
               <p style="margin: 6px 0 8px; color: var(--muted); font-size: 0.85rem; line-height: 1.4;">Interactive Japanese learning platform</p>
               <div class="project-links">
-                <a class="project-link" href="https://saugatcho.github.io/LinguaPulse">Visit Page</a>
-                <a class="project-link" href="https://raw.githack.com/SaugatCho/LinguaPulse/main/index.html">View Page as Proxied</a>
+                <a class="project-link"
+                   data-original-url="https://saugatcho.github.io/LinguaPulse"
+                   data-proxied-url="https://raw.githack.com/SaugatCho/LinguaPulse/main/index.html"
+                   href="https://saugatcho.github.io/LinguaPulse">Visit Page</a>
+                <a class="project-link"
+                   data-counterpart-original="https://saugatcho.github.io/LinguaPulse"
+                   data-counterpart-proxied="https://raw.githack.com/SaugatCho/LinguaPulse/main/index.html"
+                   href="https://raw.githack.com/SaugatCho/LinguaPulse/main/index.html">View Page as Proxied</a>
                 <a class="project-link" href="https://github.com/SaugatCho/LinguaPulse">See on GitHub</a>
               </div>
             </div>
