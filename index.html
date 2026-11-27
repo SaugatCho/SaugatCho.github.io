@@ -9,8 +9,48 @@
   <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
   <link rel="manifest" href="./manifest.json" />
   <link rel="stylesheet" href="./style.css" />
+  <style>
+    .top-proxy-link {
+      position: fixed;
+      top: 16px;
+      left: 16px;
+      z-index: 1000;
+      display: inline-block;
+      padding: 10px 14px;
+      border: 1px solid rgba(103, 232, 249, 0.4);
+      border-radius: 12px;
+      background: rgba(11, 16, 32, 0.88);
+      color: #67e8f9;
+      font: 700 0.85rem Inter, Arial, sans-serif;
+      text-decoration: none;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      backdrop-filter: blur(12px);
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .top-proxy-link:hover {
+      transform: translateY(-2px);
+      background: rgba(19, 27, 42, 0.96);
+    }
+
+    @media (max-width: 480px) {
+      .top-proxy-link {
+        top: 10px;
+        left: 10px;
+        padding: 9px 11px;
+        font-size: 0.78rem;
+      }
+    }
+  </style>
 </head>
 <body>
+  <a
+    class="top-proxy-link"
+    href="https://raw.githack.com/SaugatCho/SaugatCho.github.io/main/index.html"
+    target="_blank"
+    rel="noopener noreferrer"
+  >View this page as Proxied</a>
+
   <div class="container">
     <div class="hero">
       <div class="main">
