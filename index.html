@@ -44,12 +44,24 @@
   </style>
 </head>
 <body>
-  <a
-    class="top-proxy-link"
-    href="https://raw.githack.com/SaugatCho/SaugatCho.github.io/main/index.html"
-    target="_blank"
-    rel="noopener noreferrer"
-  >View this page as Proxied</a>
+  <a class="top-proxy-link" id="site-version-toggle" href="https://raw.githack.com/SaugatCho/SaugatCho.github.io/main/index.html">
+    Go to proxied page
+  </a>
+
+  <script>
+    (function () {
+      const toggle = document.getElementById("site-version-toggle");
+      const isProxied = window.location.hostname.toLowerCase() === "raw.githack.com";
+
+      if (isProxied) {
+        toggle.href = "https://saugatcho.github.io/";
+        toggle.textContent = "Go to original page";
+      } else {
+        toggle.href = "https://raw.githack.com/SaugatCho/SaugatCho.github.io/main/index.html";
+        toggle.textContent = "Go to proxied page";
+      }
+    })();
+  </script>
 
   <div class="container">
     <div class="hero">
